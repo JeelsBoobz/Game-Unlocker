@@ -106,6 +106,7 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
 
     // Packages to Spoof as GameMatrix
     private static final String[] packagesToChangeGameMatrix = {
+        "com.proxima.dfm",
         "com.garena.game.df"
     };
 
