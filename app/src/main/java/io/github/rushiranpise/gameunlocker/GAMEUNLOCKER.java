@@ -244,6 +244,7 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
     private static void propsToChangeMI13P() {
         setPropValue("MANUFACTURER", "Xiaomi");
         setPropValue("MODEL", "2210132C");
+    }
 
     // Props to Spoof as Xiaomi 14
     private static void propsToChangeXiaomi14() {
