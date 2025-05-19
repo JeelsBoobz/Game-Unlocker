@@ -41,18 +41,12 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
     // Packages to Spoof as OnePlus 8 Pro
     private static final String[] packagesToChangeOP8P = {
         "com.netease.lztgglobal",
-        "com.pubg.imobile",
-        "com.pubg.krmobile",
-        "com.rekoo.pubgm",
         "com.riotgames.league.wildrift",
         "com.riotgames.league.wildrifttw",
         "com.riotgames.league.wildriftvn",
         "com.riotgames.league.teamfighttactics",
         "com.riotgames.league.teamfighttacticstw",
         "com.riotgames.league.teamfighttacticsvn",
-        "com.tencent.ig",
-        "com.tencent.tmgp.pubgmhd",
-        "com.vng.pubgmobile",
         "vng.games.revelation.mobile",
         "com.ngame.allstar.eu",
         "com.mojang.minecraftpe",
@@ -82,6 +76,16 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
     private static final String[] packagesToChangeMI13P = {
         "com.levelinfinite.sgameGlobal",
         "com.tencent.tmgp.sgame"
+    };
+
+    // Packages to Spoof as Xiaomi 14
+    private static final String[] packagesToChangeXiaomi14 = {
+        "com.pubg.imobile",
+        "com.pubg.krmobile",
+        "com.rekoo.pubgm",
+        "com.tencent.ig",
+        "com.tencent.tmgp.pubgmhd",
+        "com.vng.pubgmobile"
     };
 
     // Packages to Spoof as POCO F5
@@ -167,6 +171,11 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
             XposedBridge.log("Spoofed " + packageName + " as Xiaomi Mi 13 Pro");
         }
 
+        if (Arrays.asList(packagesToChangeXiaomi14).contains(packageName)) {
+            propsToChangeXiaomi14();
+            XposedBridge.log("Spoofed " + packageName + " as Xiaomi 14");
+        }
+
         // GameMatrix
         if (Arrays.asList(packagesToChangeGameMatrix).contains(packageName)) {
             propsToChangeGameMatrix();
@@ -235,6 +244,11 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
     private static void propsToChangeMI13P() {
         setPropValue("MANUFACTURER", "Xiaomi");
         setPropValue("MODEL", "2210132C");
+
+    // Props to Spoof as Xiaomi 14
+    private static void propsToChangeXiaomi14() {
+        setPropValue("MANUFACTURER", "Xiaomi");
+        setPropValue("MODEL", "23127PN0CC");
     }
 
     // Props to Spoof as GameMatrix
